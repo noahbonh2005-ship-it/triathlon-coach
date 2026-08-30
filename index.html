@@ -133,7 +133,7 @@ function renderProgress(){
 function openWorkout(x){
  let detail="";
  if(x.type==="Musculation"){
-   detail=`<div class="section-title">Programme</div>${gym[x.name].map((e,i)=>`<div class="workout"><div class="name">${i+1}. ${e[0]}</div><div class="meta">${e[2]} séries · ${e[1]} reps · RIR ${e[3]} · repos ${e[4]}</div></div>`).join("")}
+   detail=`<div class="section-title">Programme</div>${gym[x.name].map((e,i)=>`<div class="workout"><div class="name">${i+1}. ${e[0]}</div><div class="meta">${e[2]} séries · ${e[1]} reps · RIR ${e[3]} · repos ${e[4]}</div></div>`).join("")}`;
  }else detail=`<div class="hero"><h2>${x.goal}</h2><p>${x.duration}</p><p>Reste facile et régulier. L’objectif est de construire la base, pas de tester tes limites.</p></div>`;
  const r=getResult(x.date,x.type,x.name);
  document.getElementById("sheet").innerHTML=`<button class="close" onclick="closeModal()">×</button><div class="discipline">${icon(x.type)} ${x.type}</div><h2>${x.name}</h2><div class="date">${fmtDate(x.date)} · ${x.duration}</div>${detail}<div class="actions">${r?`<button class="btn secondary" onclick='openResult(${JSON.stringify(r)})'>Voir le compte rendu</button>`:`<button class="btn" onclick='openLog(${JSON.stringify(x)})'>Marquer comme réalisée</button>`}</div>`;
